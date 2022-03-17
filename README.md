@@ -1,6 +1,8 @@
 # @muchobien/apollo-persistence-mapper
 
-#### Usage
+## Usage
+
+### Graphql
 
 ```gql
 query FooQuery {
@@ -23,4 +25,30 @@ query FooQuery {
     description
   }
 }
+```
+
+### Apollo
+
+```ts
+import {
+  persistenceMapper,
+  createPersistLink,
+} from '@muchobien/apollo-persistence-mapper';
+
+...
+
+  persistCacheSync({
+    cache,
+    storage: new MMKVWrapper(storage.instance),
+    persistenceMapper,
+    trigger: 'write',
+    debug: __DEV__,
+  });
+
+  const persistLink = createPersistLink();
+  
+  const client = new ApolloClient({
+    cache,
+    link: ApolloLink.from([persistLink, httpLink]),
+  });
 ```
