@@ -1,5 +1,17 @@
 # @muchobien/apollo-persistence-mapper
 
+## Install
+
+```sh
+npm i @muchobien/apollo-persistence-mapper
+```
+
+or 
+
+```sh
+yarn add @muchobien/apollo-persistence-mapper
+```
+
 ## Usage
 
 ### Graphql
